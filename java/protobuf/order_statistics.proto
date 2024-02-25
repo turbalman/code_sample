@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.demo.order;
+
+option java_package = "com.demo.order.model.protobuf.generated";
+option java_multiple_files = true;
+option java_outer_classname = "OrderStatisticsProto";
+
+message OrderStatistics {
+  string id = 1;
+  int64 start_timestamp = 2;
+  int64 end_timestamp = 3;
+  int32 order_count = 4;
+  int64 timestamp = 100;
+}

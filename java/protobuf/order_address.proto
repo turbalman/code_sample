@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.demo.order;
+import "address.proto";
+
+option java_package = "com.demo.order.model.protobuf.generated";
+option java_multiple_files = true;
+option java_outer_classname = "OrderAddressShot";
+
+message OrderAddress {
+  string id = 1;
+  string order_id = 2;
+  string user_Id = 3;
+  Address shipping_address = 4;
+  Address billing_address = 5;
+
+  int64 timestamp = 100;
+}

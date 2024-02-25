@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package com.demo.order;
+import "address.proto";
+
+option java_package = "com.demo.order.model.protobuf.generated";
+option java_multiple_files = true;
+option java_outer_classname = "OrderSkuProto";
+
+message OrderSku {
+  string id = 1;
+  string order_id = 2;
+  string user_Id = 3;
+  string sku_id = 4;
+  string product_id = 5;
+  Address shipping_address = 6;
+  Address billing_address = 7;
+
+  enum SkuCategory {
+    SKU_CATEGORY_DEFAULT = 0;
+    DRESS = 1;
+    HAT = 2;
+    BAG = 3;
+    SHOES = 4;
+  }
+  SkuCategory sku_category = 10;
+  string name = 11;
+
+
+  int64 timestamp = 100;
+}

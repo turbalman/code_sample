@@ -1,0 +1,13 @@
+version: '3'
+services:
+  spring-demo-data-pipeline:
+    platform: linux/x86_64
+    build: ../../spring-demo-data-pipeline
+    ports:
+      - "9010:9010"
+
+  spring-demo-stream-processing:
+    platform: linux/x86_64
+    build: ../../spring-demo-stream-processing
+    ports:
+      - "9011:9011"

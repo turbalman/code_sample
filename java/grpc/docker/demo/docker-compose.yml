@@ -1,0 +1,19 @@
+version: '3'
+services:
+  city-score:
+    platform: linux/x86_64
+    build: ../../city-score
+    ports:
+      - "9020:9020"
+
+  score-segment:
+    platform: linux/x86_64
+    build: ../../score-segment
+    ports:
+      - "9021:9021"
+
+  score-calculator:
+    platform: linux/x86_64
+    build: ../../score-calculator
+    ports:
+      - "8200:8200"

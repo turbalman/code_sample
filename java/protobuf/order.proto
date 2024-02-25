@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package com.demo.order;
+import "address.proto";
+
+option java_package = "com.demo.order.model.protobuf.generated";
+option java_multiple_files = true;
+option java_outer_classname = "OrderProto";
+
+message Order {
+  string id = 1;
+  enum Status {
+    ORDER_STATUS_DEFAULT = 0;
+    CREATED = 1;
+    PAID = 2;
+    SHIPPED = 3;
+    RETURNED = 4;
+    REFUNDED = 5;
+    CLOSED = 6;
+  }
+  Status status = 2;
+  string user_id = 3;
+  repeated string sku_ids = 4;
+  Address shipping_address = 5;
+  Address billing_address = 6;
+  int32 subtotal = 7;
+  int32 tax = 8;
+  int32 discount = 9;
+  int32 total = 10;
+
+  enum Omnichannel {
+    ORDER_OMNICHANNEL_DEFAULT = 0;
+    GOOGLE = 1;
+    FACEBOOK = 2;
+    YAHOO = 3;
+    APPLE = 4;
+    TWITTER = 5;
+  }
+  Omnichannel omnichannel = 11;
+
+  int64 timestamp = 100;
+  string ip = 101;
+
+}
