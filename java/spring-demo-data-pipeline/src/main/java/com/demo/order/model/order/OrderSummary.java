@@ -78,6 +78,26 @@ public class OrderSummary extends AuditModel {
     private Date date;
 
     /**
+     * The state.
+     */
+    private String state;
+
+    /**
+     * The Ip.
+     */
+    private Float orderTotal;
+
+    /**
+     * The Ip.
+     */
+    private Double longitude;
+
+    /**
+     * The Ip.
+     */
+    private Double latitude;
+
+    /**
      * Instantiates a new Order summary.
      *
      * @param order the order
@@ -89,6 +109,10 @@ public class OrderSummary extends AuditModel {
         skuIds = order.getSkuIdsList().stream().map(UUID::fromString).collect(Collectors.toList());
         ip = order.getIp();
         date = new Date(new Timestamp(order.getTimestamp()).getTime());
+        state = order.getBillingAddress().getState();
+        longitude = Math.random() * (360 - (0)) + 0;
+        latitude = Math.random() * (90 - (-90)) + -90;
+        orderTotal = order.getTotal() / 100.0f;
         this.submittedOrder = order;
     }
 }
