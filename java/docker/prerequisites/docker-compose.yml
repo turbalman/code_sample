@@ -30,7 +30,7 @@ services:
     # The config used here exposes port 9092 for _external_ connections to the broker
     # i.e. those from _outside_ the docker network. This could be from the host machine
     # running docker, or maybe further afield if you've got a more complicated setup.
-    # If the latter is true, you will need to change the value '192.168.2.30' in
+    # If the latter is true, you will need to change the value '192.168.1.9' in
     # KAFKA_ADVERTISED_LISTENERS to one that is resolvable to the docker host from those
     # remote clients
     #
@@ -49,7 +49,7 @@ services:
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://192.168.2.30:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://192.168.1.9:9092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
@@ -67,7 +67,7 @@ services:
       SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'PLAINTEXT://kafka:29092'
 
   metabase:
-    image: metabase/metabase
+    image: metabase/metabase:v0.45.4.2
     ports:
       - "3000:3000"
 
